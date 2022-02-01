@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MissonAdapter extends RecyclerView.Adapter {
+
+public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonViewHolder> {
 
     private ArrayList<String> mText = null;
 
@@ -27,26 +28,31 @@ public class MissonAdapter extends RecyclerView.Adapter {
     }
 
     // 생성자에서 텍스트 리스트 객체를 전달받음.
-    MissonAdapter(ArrayList<String> list) {
+    MissionAdapter(ArrayList<String> list) {
         mText = list;
     }
 
     @NonNull
     @Override
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MissionAdapter.MissonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
-        View view = inflater.inflate(R.layout.misson_item, parent, false);
-        MissonViewHolder vh = new MissonViewHolder(view);
-
+        View view = inflater.inflate(R.layout.mission_item, parent, false);
+        MissionAdapter.MissonViewHolder vh = new MissionAdapter.MissonViewHolder(view);
         return vh;
     }
 
+//    public void setList(List<String> list){
+//        this.mList = list;
+//        i = 1;
+//        notifyDataSetChanged();
+//    }
+
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MissionAdapter.MissonViewHolder holder, int position) {
         String text = mText.get(position);
         MissonViewHolder MissonHolder = (MissonViewHolder) holder;
         MissonHolder.txView1.setText(text);
