@@ -1,4 +1,4 @@
-package org.techtown.green_money;
+package com.cookandroid.front_greenmoney;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -39,7 +39,7 @@ public class MissonAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
         View view = inflater.inflate(R.layout.misson_item, parent, false);
-        MissonAdapter.MissonViewHolder vh = new MissonAdapter.MissonViewHolder(view);
+        MissonViewHolder vh = new MissonViewHolder(view);
 
         return vh;
     }
