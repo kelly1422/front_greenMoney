@@ -19,8 +19,10 @@ public class MissionActivity extends AppCompatActivity {
 
         ArrayList<String> list = new ArrayList<String>();
 
-        list.add("hello");
-        list.add("hello2");
+        for(int i = 0; i < 10; i++)
+        {
+            list.add("미션"+i+"");
+        }
         Log.e(TAG, "onCreate: after");
         RecyclerView re = (RecyclerView)findViewById(R.id.recyclerView);
         MissionAdapter adapter = new MissionAdapter(list);
