@@ -29,6 +29,6 @@ public class MissionActivity extends AppCompatActivity {
         re.setAdapter(adapter);
         Log.e(TAG, "onCreate: setting");
         re.setLayoutManager(new LinearLayoutManager(this));
-        //re.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
+        re.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
     }
 }
