@@ -46,27 +46,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
-            <Button
-                android:id="@+id/bt1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="미션목록"
-                android:onClick="MissionClick"/>
-            <Button
-                android:id="@+id/bt2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="성적표"
-                android:onClick="remove"/>
-            <Button
-                android:id="@+id/bt3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="설정"
-                android:onClick="remove"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
