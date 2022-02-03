@@ -17,7 +17,7 @@
             android:padding="15dp"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="200dp"
-            android:id="@+id/emailEdit"/>
+            android:id="@+id/email"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:padding="15dp"
             android:layout_marginHorizontal="70dp"
             android:layout_marginVertical="10dp"
-            android:id="@+id/passwordEdit"
+            android:id="@+id/password"
             android:inputType="textPassword"/>
 
         <LinearLayout
@@ -42,16 +42,16 @@
                 android:layout_gravity="left"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="50dp"
-                android:id="@+id/login"/>
+                android:id="@+id/btn_login"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Sign in"
+                android:hint="Sign up"
                 android:layout_gravity="right"
                 android:padding="12dp"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="50dp"
-                android:id="@+id/signin"/>
+                android:id="@+id/btn_signup"/>
         </LinearLayout>
     </LinearLayout>
 
