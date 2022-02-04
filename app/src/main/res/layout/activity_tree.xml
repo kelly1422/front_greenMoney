@@ -25,124 +25,103 @@
                     android:layout_height="500dp"
                     android:src="@drawable/tree"/>
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple0"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower1"
                     android:translationX="50dp"
                     android:translationY="150dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower2"
                     android:translationX="300dp"
                     android:translationY="200dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower3"
                     android:translationX="100dp"
                     android:translationY="10dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower1"
                     android:translationX="200dp"
                     android:translationY="10dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple4"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower2"
                     android:translationX="200dp"
                     android:translationY="100dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple5"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower3"
                     android:translationX="200dp"
                     android:translationY="200dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple6"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower1"
                     android:translationX="10dp"
                     android:translationY="250dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple7"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower2"
                     android:translationX="100dp"
                     android:translationY="250dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple8"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower3"
                     android:translationX="100dp"
                     android:translationY="100dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
                     android:visibility="gone" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/apple9"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/apple"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower1"
                     android:translationX="200dp"
                     android:translationY="300dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/flower"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/apple10"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/flower3"
+                    android:translationX="270dp"
+                    android:translationY="90dp"
                     android:visibility="gone" />
             </FrameLayout>
         </LinearLayout>

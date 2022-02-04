@@ -49,7 +49,7 @@ public class FragmentPage1 extends Fragment {
         setHasOptionsMenu(true);
         ViewGroup Tree_view = (ViewGroup) inflater.inflate(R.layout.activity_tree, container, false);
         TextView tx1 = (TextView) Tree_view.findViewById(R.id.ac_name);
-        ArrayList<ImageView> cl = new ArrayList<ImageView>();
+        //ArrayList<ImageView> cl = new ArrayList<ImageView>();
 
         Bundle bundle = getArguments();
         String token = bundle.getString("token");
@@ -84,14 +84,14 @@ public class FragmentPage1 extends Fragment {
         });
 
 
-        for(int i = 0; i < 7; i ++)
+        for(int i = 0; i < clear; i ++)
         {
-            if (i == 10)
-                break;
             String img = "apple" + Integer.toString(i);
             int id = getResources().getIdentifier(img, "id", "com.cookandroid.front_greenmoney");
             ImageView ap1 = (ImageView) Tree_view.findViewById(id);
             ap1.setVisibility(View.VISIBLE);
+            if (i == 10)
+                break;
         }
 
         return Tree_view;
