@@ -1,5 +1,7 @@
 package com.cookandroid.front_greenmoney;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,13 +34,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        BASE_URL = "172.20.10.4";
+        Log.e(TAG, "onCreate: start123123");
+        BASE_URL = "http://172.20.10.15:80";
 
 //        if(쿠키!=null){
 //            Intent intent=new Intent(this, MainActivity.class);
 //            startActivity(intent);
 //            finish();
-//        }
+     //   }
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -53,43 +56,74 @@ public class LoginActivity extends AppCompatActivity {
         btn_to_signup = findViewById(R.id.btn_signup);
         parents = findViewById(R.id.login_parents);
         child = findViewById(R.id.login_child);
-
+//
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 HashMap<String, String> map = new HashMap<>();
-                map.put("id", login_email.getText().toString());
+                map.put("email", login_email.getText().toString());
                 map.put("pw", login_pw.getText().toString());
-                Call<LoginResult> call;
 
                 if (parents.isChecked())
-                    call = retrofitInterface.executeParentLogin(map);
-                else
-                    call = retrofitInterface.executeChildLogin(map);
+                {
+                    Log.d(TAG, "onClick: check true");
 
-                call.enqueue(new Callback<LoginResult>() {
-                    @Override
-                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
-                        if (response.code() == 200) {
-                            //login success
-                            String token = response.body().getToken();
-                            Integer check = response.body().getIsParent();
+                    Call<LoginResult> call = retrofitInterface.executeParentLogin(map);
 
-                            Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
-                            intent1.putExtra("token", token);
-                            intent1.putExtra("check", check.toString());
-                            startActivity(intent1);
-                            finish();
-                        } else if (response.code() == 404) {
-                            //login fail
+                    Log.d(TAG, "retrofit create");
+                    call.enqueue(new Callback<LoginResult>() {
+                        @Override
+                        public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                            if (response.code() == 200) {
+                                //login success
+                                String token = response.body().getToken();
+                                Integer check = response.body().getIsParent();
+
+                                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("check", check.toString());
+                                startActivity(intent1);
+                                finish();
+                            } else if (response.code() == 400) {
+                                //login fail
+                                Log.d(TAG, "onResponse: faillllllll");
+                            }
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<LoginResult> call, Throwable t) {
-                        Log.i("connect failed", "t.getMessage");
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<LoginResult> call, Throwable t) {
+                            Log.i("connect failed", "t.getMessage");
+                        }
+                    });
+                }
+                else
+                {
+                    Call<LoginResult> call = retrofitInterface.executeChildLogin(map);
+
+                    call.enqueue(new Callback<LoginResult>() {
+                        @Override
+                        public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                            if (response.code() == 200) {
+                                //login success
+                                String token = response.body().getToken();
+                                Integer check = response.body().getIsParent();
+
+                                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                                intent1.putExtra("token", token);
+                                intent1.putExtra("check", check.toString());
+                                startActivity(intent1);
+                                finish();
+                            } else if (response.code() == 400) {
+                                //login fail
+                                Log.d(TAG, "onResponse: faillllllll");
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<LoginResult> call, Throwable t) {
+                            Log.i("connect failed", "t.getMessage");
+                        }
+                    });
+                }
             }
         });
 
