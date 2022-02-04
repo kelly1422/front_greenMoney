@@ -14,7 +14,7 @@ public class Myinfo {
         return pName;
     }
     public String getCName(){
-        return pName;
+        return cName;
     }
     public String getPEmail(){
         return pEmail;

@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
     private String BASE_URL;
+
     EditText login_email, login_pw;
     Button btn_login, btn_to_signup;
     CheckBox parents, child;
@@ -37,18 +38,13 @@ public class LoginActivity extends AppCompatActivity {
         Log.e(TAG, "onCreate: start123123");
         BASE_URL = "https://greenmoney-340309.du.r.appspot.com";
 
-//        if(쿠키!=null){
-//            Intent intent=new Intent(this, MainActivity.class);
-//            startActivity(intent);
-//            finish();
-        //   }
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         retrofitInterface = retrofit.create(RetrofitInterface.class);
-
 
         login_email = findViewById(R.id.email);
         login_pw = findViewById(R.id.password);
@@ -69,17 +65,18 @@ public class LoginActivity extends AppCompatActivity {
                     call = retrofitInterface.executeParentLogin(map);
                 else
                     call = retrofitInterface.executeChildLogin(map);
+
                 call.enqueue(new Callback<LoginResult>() {
                     @Override
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
                         if (response.code() == 200) {
                             //login success
                             String token = response.body().getToken();
-                            Integer check = response.body().getIsParent();
+                            Integer isParent = response.body().getIsParent();
 
                             Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
                             intent1.putExtra("token", token);
-                            intent1.putExtra("check", check.toString());
+                            intent1.putExtra("isParent", isParent.toString());
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 400) {
