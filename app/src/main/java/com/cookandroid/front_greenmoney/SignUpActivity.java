@@ -1,7 +1,10 @@
 package com.cookandroid.front_greenmoney;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -77,15 +80,17 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.code() == 200){
                                 //회원가입 성공
+                                Log.d(TAG, "onResponse: 회원가입 성공");
                             }
                             else{
                                 //회원가입 실패
+                                Log.d(TAG, "onResponse: 회원가입 실패");
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
-
+                            Log.d(TAG, "onResponse: 서버 연결 실패");
                         }
                     });
                 }

@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                     call = retrofitInterface.executeParentLogin(map);
                 else
                     call = retrofitInterface.executeChildLogin(map);
+
                 call.enqueue(new Callback<LoginResult>() {
                     @Override
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
