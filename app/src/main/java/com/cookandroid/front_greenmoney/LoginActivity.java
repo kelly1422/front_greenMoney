@@ -77,11 +77,11 @@ public class LoginActivity extends AppCompatActivity {
                         if (response.code() == 200) {
                             //login success
                             String token = response.body().getToken();
-                            Integer check = response.body().getIsParent();
+                            Integer isparent = response.body().getIsParent();
 
                             Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
                             intent1.putExtra("token", token);
-                            intent1.putExtra("check", check.toString());
+                            intent1.putExtra("IsParent", isparent.toString());
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 400) {
