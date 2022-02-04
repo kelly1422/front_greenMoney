@@ -13,6 +13,7 @@ import android.widget.Checkable;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
     EditText signup_name, signup_pemail, signup_cemail, signup_pwd, signup_pwd_check, phone;
-    CheckBox check_parent, check_child;
+    RadioButton check_parent, check_child;
     Button btn_signup;
     private String BASE_URL;
 
@@ -83,7 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
                             if (response.code() == 200){
                                 //회원가입 성공
                                 Log.d(TAG, "onResponse: 회원가입 성공");
-                                Toast.makeText(getApplicationContext(),"회원가입 성공ㄴ", Toast.LENGTH_SHORT).show();
                                 Intent intent1 = new Intent(SignUpActivity.this, LoginActivity.class);
                                 finish();
                             }
