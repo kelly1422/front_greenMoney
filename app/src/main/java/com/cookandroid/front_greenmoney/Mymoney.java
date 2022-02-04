@@ -10,4 +10,12 @@ public class Mymoney {
     public String getPaymentDate(){
         return paymentDate;
     }
+    public void setMaxMoney(String maxMoney)
+    {
+        this.maxMoney = maxMoney;
+    }
+    public void setPaymentDate(String paymentDate)
+    {
+        this.paymentDate = paymentDate;
+    }
 }
