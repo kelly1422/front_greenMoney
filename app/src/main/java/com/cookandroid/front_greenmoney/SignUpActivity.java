@@ -2,6 +2,7 @@ package com.cookandroid.front_greenmoney;
 
 import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Call<Void> call;
                     map.put("name", signup_name.getText().toString());
                     map.put("pw", signup_pwd.getText().toString());
-                    map.put("verifyw", signup_pwd_check.getText().toString());
+                    map.put("verifypw", signup_pwd_check.getText().toString());
                     map.put("phonenumber", phone.getText().toString());
                     if(check_parent.isChecked()){
                         map.put("email", signup_pemail.getText().toString());
@@ -82,9 +83,19 @@ public class SignUpActivity extends AppCompatActivity {
                             if (response.code() == 200){
                                 //회원가입 성공
                                 Log.d(TAG, "onResponse: 회원가입 성공");
+                                Toast.makeText(getApplicationContext(),"회원가입 성공ㄴ", Toast.LENGTH_SHORT).show();
+                                Intent intent1 = new Intent(SignUpActivity.this, LoginActivity.class);
+                                finish();
                             }
                             else{
                                 //회원가입 실패
+                                signup_cemail.setText("");
+                                signup_name.setText("");
+                                phone.setText("");
+                                signup_pemail.setText("");
+                                signup_pwd.setText("");
+                                signup_pwd_check.setText("");
+                                Toast.makeText(getApplicationContext(),"회원가입 실패", Toast.LENGTH_SHORT).show();
                                 Log.d(TAG, "onResponse: 회원가입 실패");
                             }
                         }
@@ -96,7 +107,7 @@ public class SignUpActivity extends AppCompatActivity {
                     });
                 }
                 else{
-                    //Toast.makeText("empty text");
+                    Toast.makeText(getApplicationContext(),"모든 값을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
