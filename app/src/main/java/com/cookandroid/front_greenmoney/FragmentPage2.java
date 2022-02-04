@@ -31,8 +31,6 @@ public class FragmentPage2 extends Fragment {
     private RetrofitInterface retrofitInterface;
     private String BASE_URL;
 
-    MissionAdapter adapter;
-
     private List<MonthMission> arr = new ArrayList<MonthMission>();
 
     @Nullable
@@ -49,14 +47,20 @@ public class FragmentPage2 extends Fragment {
                 .build();
 
         retrofitInterface = retrofit.create(RetrofitInterface.class);
+//        MonthMission a = new MonthMission();
+//        a.setExistMonth("a");
+//        MonthInfo b = new MonthInfo();
+//        b.setCompleted("aa");
+//        b.setMoney(100);
+//        a.setMonthInfo(b);
+//        arr.add(a);
 
         Bundle bundle = getArguments();
         String token = bundle.getString("token");
-
+        Log.d(TAG, "token!!!!~~~ "+ token);
 
         HashMap<String, String> map = new HashMap<>();
         map.put("token", token);
-        arr =  null;
 
         Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);
 
@@ -64,17 +68,16 @@ public class FragmentPage2 extends Fragment {
             @Override
             public void onResponse(Call<List<MonthMission>> call, Response<List<MonthMission>> response) {
                 arr = response.body();
-                adapter.setList(arr);
+                Log.d(TAG, "onResponse:  왜 이래");
             }
 
             @Override
             public void onFailure(Call<List<MonthMission>> call, Throwable t) {
-
+                Log.d(TAG, "onResponse: 시이댕 ");
             }
         });
-
         RecyclerView re = (RecyclerView)mission.findViewById(R.id.recyclerView);
-        adapter = new MissionAdapter(arr);
+        MissionAdapter adapter = new MissionAdapter(arr);
         re.setAdapter(adapter);
         re.setLayoutManager(new LinearLayoutManager(getActivity()));
         re.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));

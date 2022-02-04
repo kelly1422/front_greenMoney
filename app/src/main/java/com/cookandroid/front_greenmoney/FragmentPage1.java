@@ -25,10 +25,10 @@ public class FragmentPage1 extends Fragment {
         ViewGroup Tree_view = (ViewGroup) inflater.inflate(R.layout.activity_tree, container, false);
         TextView tx1 = (TextView) Tree_view.findViewById(R.id.ac_name);
         Bundle bundle = getArguments();
-        String email = bundle.getString("email");
+        String token = bundle.getString("token");
         String isParent = bundle.getString("isParent");
 
-        tx1.setText(email + "님의 잔고:");
+        tx1.setText(token + "님의 잔고:");
         return Tree_view;
     }
     @Override

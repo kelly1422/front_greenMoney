@@ -3,12 +3,18 @@ package com.cookandroid.front_greenmoney;
 public class MonthInfo {
 
     private String completed;
-    private String money;
+    private Integer money;
 
     public String getCompleted(){
         return completed;
     }
-    public String getMoney(){
+    public Integer getMoney(){
         return money;
+    }
+    public void setCompleted(String a){
+        completed = a;
+    }
+    public void setMoney(Integer a){
+        money = a;
     }
 }
