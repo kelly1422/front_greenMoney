@@ -55,7 +55,6 @@ public class FragmentPage3 extends Fragment {
             @Override
             public void onResponse(Call<Myinfo> call, Response<Myinfo> response) {
 
-
                 String phonenumber = response.body().getPhoneNumber();
                 String name = response.body().getName();
                 String email = response.body().getEmail();
