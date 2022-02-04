@@ -13,7 +13,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter id"
+            android:hint="Enter email"
             android:padding="15dp"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="200dp"
@@ -41,6 +41,7 @@
                 android:id="@+id/login_parents"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
                 android:text="parents" />
 
             <LinearLayout
@@ -53,6 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:textSize="18dp"
                     android:text="child" />
             </LinearLayout>
         </LinearLayout>
