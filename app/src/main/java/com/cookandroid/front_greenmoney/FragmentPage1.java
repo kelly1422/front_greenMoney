@@ -86,6 +86,8 @@ public class FragmentPage1 extends Fragment {
 
         for(int i = 0; i < 7; i ++)
         {
+            if (i == 10)
+                break;
             String img = "apple" + Integer.toString(i);
             int id = getResources().getIdentifier(img, "id", "com.cookandroid.front_greenmoney");
             ImageView ap1 = (ImageView) Tree_view.findViewById(id);
