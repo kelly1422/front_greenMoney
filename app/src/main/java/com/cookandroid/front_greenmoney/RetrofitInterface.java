@@ -1,6 +1,7 @@
 package com.cookandroid.front_greenmoney;
 
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,20 +11,37 @@ import retrofit2.http.POST;
 public interface RetrofitInterface {
 
     @POST("/user/parentJoin")
-    Call<Login> executeParentJoin(@Body HashMap<String,String> map);
+    Call<Void> executeParentJoin(@Body HashMap<String, String> map);
 
     @POST("/user/childJoin")
-    Call<LoginResult> executeChildJoin(@Body HashMap<String, String> map);
+    Call<Void> executeChildJoin(@Body HashMap<String, String> map);
 
     @POST("/user/parentLogin")
-    Call<Void> executeParentLogin (@Body HashMap<String, String> map);
+    Call<LoginResult> executeParentLogin(@Body HashMap<String, String> map);
 
     @POST("/user/childLogin")
-    Call <Void> executeChildLogin (@Body HashMap<String, String> map);
+    Call<LoginResult> executeChildLogin(@Body HashMap<String, String> map);
 
-    @GET("/user/verifyToken")
-    Call <String> getToken();
+    @POST("/mission/loadMonthMission")
+    Call<List<MissionItem>> executeMonthMission(@Body HashMap<String, String> map);
 
-    @POST("/user/getBestScore")
-    Call <BestScore> getBestScore (@Body HashMap<String, String> map);
+    @POST("/mission/loadAllMission")
+    Call<List<MonthMission>> executeAllMission(@Body HashMap<String, String> map);
+
+    @POST("/mission/askForConfirm")
+    Call<String> executeAskConfirm(@Body HashMap<String, String> map);
+
+    @POST("/mission/ConfirmMission")
+    Call<String> executeConfirmMission(@Body HashMap<String, String> map);
+
+    @POST("/mission/getPercent")
+    Call<Integer> executeGetPercent(@Body HashMap<String, String> map);
+
+    @POST("/settings/loadUser")
+    Call<Myinfo> executeLoadUser(@Body HashMap<String, String> map);
+
+    @POST("/settings/updateUser")
+    Call<Myinfo> executeUpdateUser(@Body HashMap<String, String> map);
+
+
 }

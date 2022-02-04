@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <FrameLayout
                 android:id="@+id/fl1"
                 android:layout_width="wrap_content"
@@ -26,7 +27,9 @@
                     app:lottie_rawRes="@raw/tree"
                     app:lottie_loop="true"
                     app:lottie_autoPlay="true"/>
+
             </FrameLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -34,11 +37,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:id="@+id/ac_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:text="홍길동님의 잔고: "/>
             <TextView
+                android:id="@+id/ac_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
