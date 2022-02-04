@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fm;
     private FragmentTransaction ft;
 
-    String email;
+    private String token;
+    private String isParent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent info = getIntent();
 
-        email = info.getStringExtra("email");
+        token = info.getStringExtra("email");
+        isParent = info.getStringExtra("isParent");
 
         mBottomNV = findViewById(R.id.nav_view);
         mBottomNV.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
@@ -59,15 +62,14 @@ public class MainActivity extends AppCompatActivity {
         if (fragment == null) {
             if (id == R.id.navigation_1) {
                 fragment = new FragmentPage1();
-                bundle.putString("email", email);
-                fragment.setArguments(bundle);
-
             } else if (id == R.id.navigation_2){
-
                 fragment = new FragmentPage2();
             }else {
                 fragment = new FragmentPage3();
             }
+            bundle.putString("token", token);
+            bundle.putString("isParent", isParent);
+            fragment.setArguments(bundle);
             ft.add(R.id.content_layout, fragment, tag);
         } else {
             ft.show(fragment);

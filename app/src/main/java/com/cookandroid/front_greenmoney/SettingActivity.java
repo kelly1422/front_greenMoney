@@ -51,7 +51,7 @@ public class SettingActivity extends AppCompatActivity {
             public void onResponse(Call<Myinfo> call, Response<Myinfo> response) {
 
                 //login success
-                String  = response.body().getToken();
+                String token = response.body().getToken();
                 Integer check = response.body().getIsParent();
 
 
