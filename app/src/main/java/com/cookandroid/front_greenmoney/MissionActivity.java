@@ -39,8 +39,6 @@ public class MissionActivity extends AppCompatActivity {
         map.put("email", login_email.getText().toString());
         map.put("pw", login_pw.getText().toString());
 
-
-
         Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);
         call.enqueue(new Callback<List<MonthMission>>() {
             @Override
@@ -69,10 +67,13 @@ public class MissionActivity extends AppCompatActivity {
             list.add("미션"+i+"");
         }
         Log.e(TAG, "onCreate: after");
+
         RecyclerView re = (RecyclerView)findViewById(R.id.recyclerView);
         MissionAdapter adapter = new MissionAdapter(list);
         re.setAdapter(adapter);
+
         Log.e(TAG, "onCreate: setting");
+
         re.setLayoutManager(new LinearLayoutManager(this));
         re.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
     }
