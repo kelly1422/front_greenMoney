@@ -47,15 +47,20 @@ public class FragmentPage2 extends Fragment {
                 .build();
 
         retrofitInterface = retrofit.create(RetrofitInterface.class);
+//        MonthMission a = new MonthMission();
+//        a.setExistMonth("a");
+//        MonthInfo b = new MonthInfo();
+//        b.setCompleted("aa");
+//        b.setMoney(100);
+//        a.setMonthInfo(b);
+//        arr.add(a);
 
         Bundle bundle = getArguments();
-        String email = bundle.getString("email");
-        String isParent = bundle.getString("isParent");
-
+        String token = bundle.getString("token");
+        Log.d(TAG, "token!!!!~~~ "+ token);
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("email", email);
-        map.put("isParent", isParent);
+        map.put("token", token);
 
         Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);
 
@@ -63,15 +68,14 @@ public class FragmentPage2 extends Fragment {
             @Override
             public void onResponse(Call<List<MonthMission>> call, Response<List<MonthMission>> response) {
                 arr = response.body();
-
+                Log.d(TAG, "onResponse:  왜 이래");
             }
 
             @Override
             public void onFailure(Call<List<MonthMission>> call, Throwable t) {
-
+                Log.d(TAG, "onResponse:  ");
             }
         });
-
         RecyclerView re = (RecyclerView)mission.findViewById(R.id.recyclerView);
         MissionAdapter adapter = new MissionAdapter(arr);
         re.setAdapter(adapter);
@@ -79,8 +83,8 @@ public class FragmentPage2 extends Fragment {
         re.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
 
         // 부모일때 미션승인만 보이기, 자식일때 미션완료만 보이기
-        Button bt_c = (Button) mission.findViewById(R.id.m_complete);
-        Button bt_p = (Button) mission.findViewById(R.id.m_success);
+//        Button bt_c = (Button) mission.findViewById(R.id.m_complete);
+//        Button bt_p = (Button) mission.findViewById(R.id.m_success);
         //if(부모)
         // bt_c.visibility="gone";
         // else
