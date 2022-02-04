@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.e(TAG, "onCreate: start123123");
-        BASE_URL = "http://172.20.10.15:80";
+        BASE_URL = "https://greenmoney-340309.du.r.appspot.com";
 
 //        if(쿠키!=null){
 //            Intent intent=new Intent(this, MainActivity.class);
