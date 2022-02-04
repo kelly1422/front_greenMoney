@@ -26,8 +26,22 @@ public interface RetrofitInterface {
     Call<List<MissionItem>> executeMonthMission(@Body HashMap<String, String> map);
 
     @POST("/mission/loadAllMission")
-    Call<List<MissionItem>> executeAllMission(@Body HashMap<String, String> map);
+    Call<List<MonthMission>> executeAllMission(@Body HashMap<String, String> map);
 
+    @POST("/mission/askForConfirm")
+    Call<String> executeAskConfirm(@Body HashMap<String, String> map);
+
+    @POST("/mission/ConfirmMission")
+    Call<String> executeConfirmMission(@Body HashMap<String, String> map);
+
+    @POST("/mission/getPercent")
+    Call<Integer> executeGetPercent(@Body HashMap<String, String> map);
+
+    @POST("/settings/loadUser")
+    Call<Myinfo> executeLoadUser(@Body HashMap<String, String> map);
+
+    @POST("/settings/updateUser")
+    Call<Myinfo> executeUpdateUser(@Body HashMap<String, String> map);
 
 
 }

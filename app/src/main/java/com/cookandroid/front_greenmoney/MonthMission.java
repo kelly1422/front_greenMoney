@@ -2,14 +2,14 @@ package com.cookandroid.front_greenmoney;
 
 public class MonthMission {
     private Integer month;
-    private Integer completed;
+    private Integer completedMission;
     private Integer money;
 
     public Integer getMonth(){
         return month;
     }
     public Integer getCompleted(){
-        return completed;
+        return completedMission;
     }
     public Integer getMoney(){
         return money;
