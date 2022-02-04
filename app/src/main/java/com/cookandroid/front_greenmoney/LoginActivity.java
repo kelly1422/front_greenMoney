@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        BASE_URL = "http://localhost:8080";
+        BASE_URL = "https://greenmoney-340309.du.r.appspot.com";
 
 //        if(쿠키!=null){
 //            Intent intent=new Intent(this, MainActivity.class);
@@ -62,11 +62,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 HashMap<String, String> map = new HashMap<>();
+                Log.e(TAG, login_email.getText().toString());
                 map.put("id", login_email.getText().toString());
                 map.put("pw", login_pw.getText().toString());
                 Log.i("map id", login_email.getText().toString());
                 Call<LoginResult> call;
-                Log.e(TAG, "onClick: aaaaaa");
+
                 if (parents.isChecked())
                     call = retrofitInterface.executeParentLogin(map);
                 else
@@ -75,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback<LoginResult>() {
                     @Override
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+
                         if (response.code() == 200) {
                             //login success
                             String token = response.body().getToken();
@@ -86,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 404) {
-                            //login fail
+
                         }
                     }
                     @Override
