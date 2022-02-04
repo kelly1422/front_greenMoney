@@ -15,7 +15,13 @@ public class FragmentPage3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.activity_setting, container, false);
+
+        ViewGroup setting = (ViewGroup) inflater.inflate(R.layout.activity_setting, container, false);
+        Bundle bundle = getArguments();
+        String email = bundle.getString("email");
+        Integer isParent = bundle.getInt("isParent");
+
+        return setting;
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

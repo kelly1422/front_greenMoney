@@ -26,6 +26,8 @@ public class FragmentPage1 extends Fragment {
         TextView tx1 = (TextView) Tree_view.findViewById(R.id.ac_name);
         Bundle bundle = getArguments();
         String email = bundle.getString("email");
+        String isParent = bundle.getString("isParent");
+
         tx1.setText(email + "님의 잔고:");
         return Tree_view;
     }

@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
                             intent1.putExtra("token", token);
-                            intent1.putExtra("check", check.toString());
+                            intent1.putExtra("isParent", check.toString());
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 400) {
