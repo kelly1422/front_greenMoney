@@ -49,12 +49,12 @@ public class FragmentPage2 extends Fragment {
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         Bundle bundle = getArguments();
-        String email = bundle.getString("email");
+        String token = bundle.getString("token");
         String isParent = bundle.getString("isParent");
 
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("email", email);
+        map.put("token", token);
         map.put("isParent", isParent);
 
         Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);

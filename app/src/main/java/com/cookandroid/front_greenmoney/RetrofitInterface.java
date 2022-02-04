@@ -43,5 +43,7 @@ public interface RetrofitInterface {
     @POST("/settings/updateUser")
     Call<Myinfo> executeUpdateUser(@Body HashMap<String, String> map);
 
+    @POST("/settings/loadMoney")
+    Call<Mymoney> executeLoadMoney(@Body HashMap<String, String> map);
 
 }
