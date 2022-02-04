@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,16 @@ public class FragmentPage2 extends Fragment {
         re.setAdapter(adapter);
         re.setLayoutManager(new LinearLayoutManager(getActivity()));
         re.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
+
+        // 부모일때 미션승인만 보이기, 자식일때 미션완료만 보이기
+        Button bt_c = (Button) rootView.findViewById(R.id.m_complete);
+        Button bt_p = (Button) rootView.findViewById(R.id.m_success);
+        //if(부모)
+        // bt_c.visibility="gone";
+        // else
+        // bt_p.visibility="gone";
+
+
         return rootView;
     }
     @Override
