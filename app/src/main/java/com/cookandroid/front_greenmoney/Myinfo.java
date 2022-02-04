@@ -34,4 +34,5 @@ public class Myinfo {
     public String getDate(){
         return date;
     }
+
 }
