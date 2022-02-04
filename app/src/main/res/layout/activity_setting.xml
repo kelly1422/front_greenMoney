@@ -18,6 +18,7 @@
             android:layout_height="130dp"
             android:background="@drawable/green_bg"
             android:gravity="top"
+            android:layout_marginHorizontal="5dp"
             android:elevation="@dimen/cardview_default_elevation"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
