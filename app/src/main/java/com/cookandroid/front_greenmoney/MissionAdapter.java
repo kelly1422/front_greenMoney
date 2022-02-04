@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonViewHolder> {
 
-    private ArrayList<String> mText = null;
+    private ArrayList<MonthMission> arr = null;
 
     public class MissonViewHolder extends RecyclerView.ViewHolder {
         TextView txView1;
@@ -28,8 +28,8 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonVi
     }
 
     // 생성자에서 텍스트 리스트 객체를 전달받음.
-    MissionAdapter(ArrayList<String> list) {
-        mText = list;
+    MissionAdapter(ArrayList<MonthMission> list) {
+        arr = list;
     }
 
     @NonNull
@@ -39,7 +39,7 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonVi
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
-        View view = inflater.inflate(R.layout.mission_item, parent, false);
+        View view = inflater.inflate(R.layout.month_mission_item, parent, false);
         MissionAdapter.MissonViewHolder vh = new MissionAdapter.MissonViewHolder(view);
         return vh;
     }
@@ -53,7 +53,7 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonVi
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(@NonNull MissionAdapter.MissonViewHolder holder, int position) {
-        String text = mText.get(position);
+        String text = arr.get(position);
         MissonViewHolder MissonHolder = (MissonViewHolder) holder;
         MissonHolder.txView1.setText(text);
     }
@@ -61,6 +61,6 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonVi
     // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
     public int getItemCount() {
-        return mText.size() ;
+        return arr.size() ;
     }
 }

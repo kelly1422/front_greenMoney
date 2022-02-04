@@ -25,19 +25,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.HEAD;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNV;
     private FragmentManager fm;
     private FragmentTransaction ft;
-    String isparents;
+
+    private String token;
+    private String isParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent info = getIntent();
-        isparents = info.getStringExtra("IsParent");
+
+
+        token = info.getStringExtra("token");
+        isParent = info.getStringExtra("isParent");
 
         mBottomNV = findViewById(R.id.nav_view);
         mBottomNV.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
@@ -65,15 +71,14 @@ public class MainActivity extends AppCompatActivity {
         if (fragment == null) {
             if (id == R.id.navigation_1) {
                 fragment = new FragmentPage1();
-                bundle.putString("isparents", isparents);
-                fragment.setArguments(bundle);
-
             } else if (id == R.id.navigation_2){
-
                 fragment = new FragmentPage2();
             }else {
                 fragment = new FragmentPage3();
             }
+            bundle.putString("token", token);
+            bundle.putString("isParent", isParent);
+            fragment.setArguments(bundle);
             ft.add(R.id.content_layout, fragment, tag);
         } else {
             ft.show(fragment);
