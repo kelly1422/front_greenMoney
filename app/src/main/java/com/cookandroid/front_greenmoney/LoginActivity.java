@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private String BASE_URL;
     EditText login_email, login_pw;
     Button btn_login, btn_to_signup;
-    CheckBox parents, child;
+    RadioButton parents, child;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_to_signup = findViewById(R.id.btn_signup);
         parents = findViewById(R.id.login_parents);
         child = findViewById(R.id.login_child);
-//
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,12 +81,12 @@ public class LoginActivity extends AppCompatActivity {
 
                             Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
                             intent1.putExtra("token", token);
-                            intent1.putExtra("check", check.toString());
+                            intent1.putExtra("isParent", check.toString());
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 400) {
                             //login fail
-                            Log.d(TAG, "onResponse: faillllllll");
+                            Log.d(TAG, "onResponse: login fail");
                         }
                     }
                     @Override

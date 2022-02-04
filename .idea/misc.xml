@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/front_greenMoney/app/src/main/res/layout/activity_account.xml" value="0.23550724637681159" />
         <entry key="..\:/front_greenMoney/app/src/main/res/layout/activity_login.xml" value="0.2234375" />
+        <entry key="..\:/front_greenMoney/app/src/main/res/layout/activity_main.xml" value="0.23550724637681159" />
+        <entry key="..\:/front_greenMoney/app/src/main/res/layout/activity_mission.xml" value="0.23550724637681159" />
         <entry key="..\:/front_greenMoney/app/src/main/res/layout/activity_setting.xml" value="0.2234375" />
+        <entry key="..\:/front_greenMoney/app/src/main/res/layout/month_mission_item.xml" value="0.2703125" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2055" />
         <entry key="app/src/main/res/layout/account.xml" value="0.38333333333333336" />
