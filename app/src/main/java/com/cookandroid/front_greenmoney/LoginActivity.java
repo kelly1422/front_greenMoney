@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent1);
                             finish();
                         } else if (response.code() == 404) {
-
+                            Log.e(TAG, "onResponse: failll");
                         }
                     }
                     @Override
