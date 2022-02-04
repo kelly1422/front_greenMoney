@@ -1,17 +1,13 @@
 package com.cookandroid.front_greenmoney;
 
 public class MonthMission {
-    private Integer month;
-    private Integer completedMission;
-    private Integer money;
+    private String existMonth;
+    private MonthInfo monthInfo;
 
-    public Integer getMonth(){
-        return month;
+    public String getMonth(){
+        return existMonth;
     }
-    public Integer getCompleted(){
-        return completedMission;
-    }
-    public Integer getMoney(){
-        return money;
+    public MonthInfo getMonthInfo(){
+        return monthInfo;
     }
 }

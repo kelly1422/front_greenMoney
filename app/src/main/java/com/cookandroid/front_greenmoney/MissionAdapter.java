@@ -14,22 +14,25 @@ import java.util.ArrayList;
 
 public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonViewHolder> {
 
-    private ArrayList<MonthMission> arr = null;
+    private ArrayList<MonthMission> arrMission;
 
     public class MissonViewHolder extends RecyclerView.ViewHolder {
-        TextView txView1;
+        TextView month;
+        TextView completed;
+        TextView money;
 
         MissonViewHolder(View itemView) {
             super(itemView);
-
             // 뷰 객체에 대한 참조. (hold strong reference)
-            txView1 = itemView.findViewById(R.id.m_tx);
+            month = itemView.findViewById(R.id.month);
+            completed = itemView.findViewById(R.id.completed);
+            money = itemView.findViewById(R.id.money);
         }
     }
 
     // 생성자에서 텍스트 리스트 객체를 전달받음.
     MissionAdapter(ArrayList<MonthMission> list) {
-        arr = list;
+        arrMission = list;
     }
 
     @NonNull
@@ -53,14 +56,17 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissonVi
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(@NonNull MissionAdapter.MissonViewHolder holder, int position) {
-        String text = arr.get(position);
+        String month = arrMission.get(position).getMonth();
+        MonthInfo monthinfo = arrMission.get(position).getMonthInfo();
         MissonViewHolder MissonHolder = (MissonViewHolder) holder;
-        MissonHolder.txView1.setText(text);
+        MissonHolder.month.setText(month);
+        MissonHolder.completed.setText(monthinfo.getCompleted());
+        MissonHolder.money.setText(monthinfo.getMoney());
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
     public int getItemCount() {
-        return arr.size() ;
+        return arrMission.size() ;
     }
 }

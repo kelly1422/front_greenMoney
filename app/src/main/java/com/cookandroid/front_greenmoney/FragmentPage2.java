@@ -31,6 +31,8 @@ public class FragmentPage2 extends Fragment {
     private RetrofitInterface retrofitInterface;
     private String BASE_URL;
 
+    MissionAdapter adapter;
+
     private List<MonthMission> arr = new ArrayList<MonthMission>();
 
     @Nullable
@@ -49,13 +51,12 @@ public class FragmentPage2 extends Fragment {
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         Bundle bundle = getArguments();
-        String email = bundle.getString("email");
-        String isParent = bundle.getString("isParent");
+        String token = bundle.getString("token");
 
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("email", email);
-        map.put("isParent", isParent);
+        map.put("token", token);
+        arr =  null;
 
         Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);
 
@@ -63,7 +64,7 @@ public class FragmentPage2 extends Fragment {
             @Override
             public void onResponse(Call<List<MonthMission>> call, Response<List<MonthMission>> response) {
                 arr = response.body();
-
+                adapter.setList(arr);
             }
 
             @Override
@@ -73,14 +74,14 @@ public class FragmentPage2 extends Fragment {
         });
 
         RecyclerView re = (RecyclerView)mission.findViewById(R.id.recyclerView);
-        MissionAdapter adapter = new MissionAdapter(arr);
+        adapter = new MissionAdapter(arr);
         re.setAdapter(adapter);
         re.setLayoutManager(new LinearLayoutManager(getActivity()));
         re.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
 
         // 부모일때 미션승인만 보이기, 자식일때 미션완료만 보이기
-        Button bt_c = (Button) mission.findViewById(R.id.m_complete);
-        Button bt_p = (Button) mission.findViewById(R.id.m_success);
+//        Button bt_c = (Button) mission.findViewById(R.id.m_complete);
+//        Button bt_p = (Button) mission.findViewById(R.id.m_success);
         //if(부모)
         // bt_c.visibility="gone";
         // else
