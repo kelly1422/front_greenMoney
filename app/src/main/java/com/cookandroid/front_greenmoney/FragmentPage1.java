@@ -41,7 +41,7 @@ public class FragmentPage1 extends Fragment {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
     private String BASE_URL;
-    int test;
+    int clear;
 
     @Nullable
     @Override
@@ -74,7 +74,7 @@ public class FragmentPage1 extends Fragment {
         call.enqueue(new Callback<List<MissionItem>>() {
             @Override
             public void onResponse(Call<List<MissionItem>> call, Response<List<MissionItem>> response) {
-                test = response.body().size();
+                clear = response.body().size();
             }
 
             @Override
@@ -84,7 +84,7 @@ public class FragmentPage1 extends Fragment {
         });
 
 
-        for(int i = 0; i < test; i ++)
+        for(int i = 0; i < 7; i ++)
         {
             String img = "apple" + Integer.toString(i);
             int id = getResources().getIdentifier(img, "id", "com.cookandroid.front_greenmoney");
