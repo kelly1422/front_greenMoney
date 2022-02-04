@@ -15,6 +15,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText login_email, login_pw;
     Button btn_login, btn_to_signup;
 
+    private String BASE_URL = "http://";
+    //server 기본 주소
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
