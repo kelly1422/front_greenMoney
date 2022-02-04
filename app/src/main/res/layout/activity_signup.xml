@@ -82,13 +82,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
-                    android:id="@+id/signup_parents"
+                    android:id="@+id/check_parents"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:text="partent"/>
                 <RadioButton
-                    android:id="@+id/signup_child"
+                    android:id="@+id/check_child"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
