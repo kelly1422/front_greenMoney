@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent info = getIntent();
 
-
         token = info.getStringExtra("token");
         isParent = info.getStringExtra("isParent");
 
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-                mBottomNV.setSelectedItemId(R.id.navigation_1);
+                mBottomNV.setSelectedItemId(R.id.navigation_2);
     }
 
     private void BottomNavigate(int id) {  //BottomNavigation 페이지 변경

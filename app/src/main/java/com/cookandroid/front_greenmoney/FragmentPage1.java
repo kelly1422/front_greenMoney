@@ -53,6 +53,7 @@ public class FragmentPage1 extends Fragment {
 
         Bundle bundle = getArguments();
         String token = bundle.getString("token");
+
         BASE_URL = "https://greenmoney-340309.du.r.appspot.com";
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -62,7 +63,6 @@ public class FragmentPage1 extends Fragment {
         HashMap<String, String> map = new HashMap<>();
 
         String todaysDate = LocalDate.now().toString();
-        String s_date = todaysDate;
         String[]date = todaysDate.split("-");
         String month = date[0]+"-"+date[1];
 
@@ -75,11 +75,12 @@ public class FragmentPage1 extends Fragment {
             @Override
             public void onResponse(Call<List<MissionItem>> call, Response<List<MissionItem>> response) {
                 clear = response.body().size();
+                Log.d(TAG, "onResponse:  왜 이래11");
             }
 
             @Override
             public void onFailure(Call<List<MissionItem>> call, Throwable t) {
-
+                Log.d(TAG, "onResponse:  zzzz왜 이래");
             }
         });
 
