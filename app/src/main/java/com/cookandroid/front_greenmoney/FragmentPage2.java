@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +40,9 @@ public class FragmentPage2 extends Fragment {
         setHasOptionsMenu(true);
         ViewGroup mission = (ViewGroup) inflater.inflate(R.layout.activity_mission, container, false);
 
+        Bundle bundle = getArguments();
+        String token = bundle.getString("token");
+
         BASE_URL = "https://greenmoney-340309.du.r.appspot.com";
 
         retrofit = new Retrofit.Builder()
@@ -47,22 +51,54 @@ public class FragmentPage2 extends Fragment {
                 .build();
 
         retrofitInterface = retrofit.create(RetrofitInterface.class);
-//        MonthMission a = new MonthMission();
-//        a.setExistMonth("a");
-//        MonthInfo b = new MonthInfo();
-//        b.setCompleted("aa");
-//        b.setMoney(100);
-//        a.setMonthInfo(b);
-//        arr.add(a);
 
-        Bundle bundle = getArguments();
-        String token = bundle.getString("token");
+        MonthMission a = new MonthMission();
+        a.setExistMonth("2021년 10월");
+        MonthInfo b = new MonthInfo();
+        b.setCompleted("10 / 13");
+        b.setMoney(10000);
+        a.setMonthInfo(b);
+        arr.add(a);
+
+        MonthMission a2 = new MonthMission();
+        a2.setExistMonth("2021년 11월");
+        MonthInfo b2 = new MonthInfo();
+        b2.setCompleted("7 / 10");
+        b2.setMoney(7000);
+        a2.setMonthInfo(b2);
+        arr.add(a2);
+
+        MonthMission a3 = new MonthMission();
+        a3.setExistMonth("2021년 12월");
+        MonthInfo b3 = new MonthInfo();
+        b3.setCompleted("20 / 20");
+        b3.setMoney(40000);
+        a3.setMonthInfo(b3);
+        arr.add(a3);
+
+        MonthMission a4 = new MonthMission();
+        a4.setExistMonth("2022년 01월");
+        MonthInfo b4 = new MonthInfo();
+        b4.setCompleted("6 / 15");
+        b4.setMoney(5000);
+        a4.setMonthInfo(b4);
+        arr.add(a4);
+
+        MonthMission a5 = new MonthMission();
+        a5.setExistMonth("2021년 10월");
+        MonthInfo b5 = new MonthInfo();
+        b5.setCompleted("22 / 25");
+        b5.setMoney(25000);
+        a5.setMonthInfo(b5);
+        arr.add(a5);
+
         Log.d(TAG, "token!!!!~~~ "+ token);
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("token", token);
 
-        Call<List<MonthMission>> call = retrofitInterface.executeAllMission(map);
+        map.put("token", token);
+        Call<List<MonthMission>> call;
+        call = retrofitInterface.executeAllMission(map);
 
         call.enqueue(new Callback<List<MonthMission>>() {
             @Override

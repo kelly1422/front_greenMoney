@@ -18,6 +18,15 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.HEAD;
+
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNV;
     private FragmentManager fm;
@@ -30,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Intent info = getIntent();
 
         token = info.getStringExtra("token");
@@ -44,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-                mBottomNV.setSelectedItemId(R.id.navigation_2);
+                mBottomNV.setSelectedItemId(R.id.navigation_1);
     }
 
     private void BottomNavigate(int id) {  //BottomNavigation 페이지 변경
