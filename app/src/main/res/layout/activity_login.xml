@@ -7,13 +7,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter id"
+            android:hint="Enter email"
             android:padding="15dp"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="200dp"
@@ -37,25 +37,27 @@
             android:orientation="horizontal"
             android:padding="10dp">
 
-            <CheckBox
-                android:id="@+id/login_parents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="parents" />
-
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <CheckBox
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/login_parents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="partent"/>
+                <RadioButton
                     android:id="@+id/login_child"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="child" />
-            </LinearLayout>
+                    android:layout_marginLeft="30dp"
+                    android:text="child"/>
+            </RadioGroup>
         </LinearLayout>
+
+    </LinearLayout>
+
 
         <LinearLayout
             android:layout_marginTop="30dp"
@@ -83,5 +85,3 @@
                 android:id="@+id/btn_signup"/>
         </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>

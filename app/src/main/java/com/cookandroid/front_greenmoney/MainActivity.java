@@ -18,20 +18,31 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.HEAD;
+
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNV;
     private FragmentManager fm;
     private FragmentTransaction ft;
 
-    String email;
+    private String token;
+    private String isParent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Intent info = getIntent();
 
-        email = info.getStringExtra("email");
+        token = info.getStringExtra("token");
+        isParent = info.getStringExtra("isParent");
 
         mBottomNV = findViewById(R.id.nav_view);
         mBottomNV.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
@@ -59,15 +70,14 @@ public class MainActivity extends AppCompatActivity {
         if (fragment == null) {
             if (id == R.id.navigation_1) {
                 fragment = new FragmentPage1();
-                bundle.putString("email", email);
-                fragment.setArguments(bundle);
-
             } else if (id == R.id.navigation_2){
-
                 fragment = new FragmentPage2();
             }else {
                 fragment = new FragmentPage3();
             }
+            bundle.putString("token", token);
+            bundle.putString("isParent", isParent);
+            fragment.setArguments(bundle);
             ft.add(R.id.content_layout, fragment, tag);
         } else {
             ft.show(fragment);
